@@ -3,12 +3,12 @@ from select import select
 import coffea
 from coffea import hist, processor
 import awkward as ak
-from testWorkFlows.utils.correction import add_jec_variables,muSFs,eleSFs,init_corr,puwei
+from ExampleWorkflow.utils.correction import add_jec_variables,muSFs,eleSFs,init_corr,puwei
 from coffea.lumi_tools import LumiMask
 from coffea.analysis_tools import Weights
 from functools import partial
 # import numba
-from testWorkFlows.helpers.util import make_p4
+from ExampleWorkflow.helpers.util import make_p4
 
 def mT(obj1,obj2):
     return np.sqrt(2.*obj1.pt*obj2.pt*(1.-np.cos(obj1.phi-obj2.phi)))
@@ -174,9 +174,9 @@ class NanoProcessor(processor.ProcessorABC):
             },
         }
         self._lumiMasks = {
-    '2016': LumiMask('src/testWorkFlows/data/Lumimask/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt'),
-    '2017': LumiMask('src/testWorkFlows/data/Lumimask/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt'),
-    '2018': LumiMask('src/testWorkFlows/data/Lumimask/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt')
+    '2016': LumiMask('src/ExampleWorkflow/data/Lumimask/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt'),
+    '2017': LumiMask('src/ExampleWorkflow/data/Lumimask/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt'),
+    '2018': LumiMask('src/ExampleWorkflow/data/Lumimask/Cert_271036-284044_13TeV_Legacy2016_Collisions16_JSON.txt')
 }
         
         self._corr,self._jetfactory = init_corr(year)
